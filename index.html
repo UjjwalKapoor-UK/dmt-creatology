@@ -1,3 +1,38 @@
+<hr style="border:1px solid #ff0055">
+
+<div class="card">
+<h2>🎟 MMF 2026 Ticket Booking</h2>
+
+<label>Name</label><br>
+<input id="name" placeholder="Your Name"><br><br>
+
+<label>Mobile</label><br>
+<input id="phone" placeholder="Mobile Number"><br><br>
+
+<label>Select Ticket</label><br>
+<select id="ticket">
+<option>Color Entry Pass – ₹250</option>
+<option>Student Flash Pass – ₹499</option>
+<option>VIP Gold Pass – ₹999</option>
+<option>Platinum DJ Arena – ₹2499</option>
+</select><br><br>
+
+<button onclick="book()">Proceed to Pay</button>
+
+<p id="result"></p>
+</div>
+
+<script>
+function book(){
+let name = document.getElementById("name").value;
+let phone = document.getElementById("phone").value;
+let ticket = document.getElementById("ticket").value;
+
+let msg = "MMF 2026 Ticket Booking%0AName: "+name+"%0AMobile: "+phone+"%0ATicket: "+ticket;
+
+window.open("https://wa.me/918626880603?text="+msg);
+}
+</script>
 <!DOCTYPE html>
 <html>
 <head>

@@ -2,100 +2,189 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>DMT CREATOLOGY Animated Logo</title>
+<title>DMT CREATOLOGY</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
 body{
-    margin:0;
-    background:transparent;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+background:#000;
+overflow:hidden;
 }
 
-/* Container */
+/* Splash Screen */
+#splash{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+/* Logo Container */
 .logo-box{
-    position:relative;
-    width:300px;
-    height:300px;
+width:320px;
+height:320px;
+position:relative;
 }
 
-/* Outer Ring */
+/* Rings */
 .outer-ring{
-    position:absolute;
-    width:100%;
-    height:100%;
-    border:8px solid white;
-    border-radius:50%;
-    animation:spin 6s linear infinite;
+position:absolute;
+width:100%;
+height:100%;
+border:6px solid white;
+border-radius:50%;
+animation:spin 8s linear infinite;
 }
 
-/* Inner Ring */
+.middle-ring{
+position:absolute;
+width:260px;
+height:260px;
+top:30px;
+left:30px;
+border:4px solid cyan;
+border-radius:50%;
+animation:spinReverse 6s linear infinite;
+}
+
 .inner-ring{
-    position:absolute;
-    width:220px;
-    height:220px;
-    top:40px;
-    left:40px;
-    border:4px solid white;
-    border-radius:50%;
-    animation:spinReverse 4s linear infinite;
+position:absolute;
+width:200px;
+height:200px;
+top:60px;
+left:60px;
+border:3px solid white;
+border-radius:50%;
+animation:spin 4s linear infinite;
 }
 
-/* Center Logo */
+/* Center Text */
 .center{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    text-align:center;
-    color:white;
-    font-family:Arial, Helvetica, sans-serif;
-    animation:glow 2s infinite alternate;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+color:white;
+animation:glow 2s infinite alternate;
 }
 
 .center h1{
-    margin:0;
-    font-size:36px;
-    letter-spacing:3px;
+font-size:50px;
+letter-spacing:6px;
 }
 
 .center p{
-    margin:5px 0 0;
-    font-size:14px;
-    letter-spacing:2px;
+font-size:14px;
+letter-spacing:3px;
+margin-top:5px;
+}
+
+/* First Page */
+#home{
+display:none;
+width:100%;
+height:100vh;
+background:linear-gradient(to bottom,#000,#020d15);
+color:white;
+text-align:center;
+padding-top:100px;
+}
+
+#home h1{
+font-size:38px;
+color:cyan;
+text-shadow:0 0 20px cyan;
+}
+
+#home h2{
+margin-top:15px;
+font-size:18px;
+letter-spacing:2px;
+}
+
+.buttons{
+margin-top:40px;
+}
+
+.buttons button{
+padding:15px 30px;
+margin:10px;
+border:none;
+border-radius:30px;
+background:cyan;
+color:black;
+font-size:16px;
+cursor:pointer;
 }
 
 /* Animations */
 @keyframes spin{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(360deg);}
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
 }
 
 @keyframes spinReverse{
-    from{transform:rotate(360deg);}
-    to{transform:rotate(0deg);}
+from{transform:rotate(360deg);}
+to{transform:rotate(0deg);}
 }
 
 @keyframes glow{
-    from{ text-shadow:0 0 10px white;}
-    to{ text-shadow:0 0 25px cyan;}
+from{text-shadow:0 0 10px white;}
+to{text-shadow:0 0 30px cyan;}
 }
 </style>
 </head>
 
 <body>
 
+<!-- Splash Screen -->
+<div id="splash">
 <div class="logo-box">
-    <div class="outer-ring"></div>
-    <div class="inner-ring"></div>
-
-    <div class="center">
-        <h1>DMT</h1>
-        <p>CREATOLOGY</p>
-    </div>
+<div class="outer-ring"></div>
+<div class="middle-ring"></div>
+<div class="inner-ring"></div>
+<div class="center">
+<h1>DMT</h1>
+<p>CREATOLOGY</p>
+</div>
+</div>
 </div>
 
+<!-- Home Page -->
+<div id="home">
+<h1>DMT CREATOLOGY</h1>
+<h2>India’s No.1 Event, Education & Digital Empire</h2>
+
+<h2 style="margin-top:20px;">
+Your Career, Our Guarantee  
+<br>11,80,000+ Hotels | Global Brands | Top 100 Festivals
+</h2>
+
+<div class="buttons">
+<button>Explore Services</button>
+<button>Join DMT</button>
+<button>Book MMF Tickets</button>
+</div>
+</div>
+
+<script>
+setTimeout(()=>{
+document.getElementById("splash").style.display="none";
+document.getElementById("home").style.display="block";
+},4000);
+</script>
+
 </body>
-</html>
+    </html>

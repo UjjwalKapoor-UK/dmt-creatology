@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DMT CREATOLOGY Logo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<style>
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial Black, Impact, sans-serif;
+}
+
+/* Main logo box */
+#logo{
+    text-align:center;
+    color:#00ffff;
+    text-shadow:0 0 20px #00ffff, 0 0 60px #00aaff;
+}
+
+/* D M T letters */
+#letters{
+    display:flex;
+    gap:30px;
+    justify-content:center;
+}
+
+.letter{
+    font-size:140px;
+    animation:float 3s ease-in-out infinite, glow 2s infinite alternate;
+}
+
+/* Delay for wave effect */
+#D{animation-delay:0s;}
+#M{animation-delay:.3s;}
+#T{animation-delay:.6s;}
+
+/* CREATOLOGY text */
+#creato{
+    margin-top:20px;
+    font-size:32px;
+    letter-spacing:10px;
+    color:white;
+    opacity:0;
+    animation:fadeIn 2s forwards;
+    animation-delay:1.5s;
+    text-shadow:0 0 10px #00ffff;
+}
+
+/* Animations */
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+@keyframes glow{
+    from{text-shadow:0 0 10px #00ffff;}
+    to{text-shadow:0 0 40px #00ffff;}
+}
+
+@keyframes fadeIn{
+    to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="logo">
+    <div id="letters">
+        <div class="letter" id="D">D</div>
+        <div class="letter" id="M">M</div>
+        <div class="letter" id="T">T</div>
+    </div>
+    <div id="creato">CREATOLOGY</div>
+</div>
+
+</body>
+</html>

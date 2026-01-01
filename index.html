@@ -1,171 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>DMT CREATOLOGY</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>DMT CREATOLOGY Animated Logo</title>
 
 <style>
 body{
-margin:0;
-background:#000;
-color:white;
-font-family:Orbitron;
+    margin:0;
+    background:transparent;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
 }
-header{
-background:#000;
-display:flex;
-justify-content:space-between;
-padding:15px;
-border-bottom:2px solid cyan;
+
+/* Container */
+.logo-box{
+    position:relative;
+    width:300px;
+    height:300px;
 }
-.logo{
-color:cyan;
-font-size:22px;
+
+/* Outer Ring */
+.outer-ring{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border:8px solid white;
+    border-radius:50%;
+    animation:spin 6s linear infinite;
 }
-nav a{
-color:white;
-margin:10px;
-text-decoration:none;
+
+/* Inner Ring */
+.inner-ring{
+    position:absolute;
+    width:220px;
+    height:220px;
+    top:40px;
+    left:40px;
+    border:4px solid white;
+    border-radius:50%;
+    animation:spinReverse 4s linear infinite;
 }
-.hero{
-height:240px;
-background:url('https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2') center/cover;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-background-blend-mode:overlay;
-background-color:rgba(0,0,0,0.6);
+
+/* Center Logo */
+.center{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    animation:glow 2s infinite alternate;
 }
-.tabs{
-display:flex;
-overflow-x:auto;
-background:#111;
+
+.center h1{
+    margin:0;
+    font-size:36px;
+    letter-spacing:3px;
 }
-.tabs div{
-padding:15px;
-cursor:pointer;
-white-space:nowrap;
+
+.center p{
+    margin:5px 0 0;
+    font-size:14px;
+    letter-spacing:2px;
 }
-.tabs div:hover{
-background:cyan;
-color:black;
+
+/* Animations */
+@keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
 }
-.section{
-padding:20px;
-display:none;
+
+@keyframes spinReverse{
+    from{transform:rotate(360deg);}
+    to{transform:rotate(0deg);}
 }
-.section.active{
-display:block;
-}
-.card{
-background:#111;
-padding:15px;
-margin:15px 0;
-border-radius:15px;
-box-shadow:0 0 15px cyan;
-}
-.button{
-background:cyan;
-color:black;
-border:none;
-padding:10px 20px;
-border-radius:20px;
-margin-top:10px;
-width:100%;
-}
-input,select{
-width:100%;
-padding:10px;
-margin:8px 0;
-border-radius:10px;
-border:none;
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px white;}
+    to{ text-shadow:0 0 25px cyan;}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">DMT CREATOLOGY</div>
-<nav>
-<a href="#">Home</a>
-<a href="#">Login</a>
-</nav>
-</header>
+<div class="logo-box">
+    <div class="outer-ring"></div>
+    <div class="inner-ring"></div>
 
-<div class="hero">MMF 2026 – 4 Days Ultra Festival</div>
-
-<div class="tabs">
-<div onclick="show('products')">Products</div>
-<div onclick="show('services')">Services</div>
-<div onclick="show('artists')">Artists</div>
-<div onclick="show('tickets')">MMF Tickets</div>
+    <div class="center">
+        <h1>DMT</h1>
+        <p>CREATOLOGY</p>
+    </div>
 </div>
-
-<div id="products" class="section active">
-<div class="card">Website Builder</div>
-<div class="card">App Builder</div>
-<div class="card">Ticketing System</div>
-<div class="card">Design Studio</div>
-</div>
-
-<div id="services" class="section">
-<div class="card">Event Promotion</div>
-<div class="card">Artist Booking</div>
-<div class="card">Venue Booking</div>
-<div class="card">Payment Gateway</div>
-</div>
-
-<div id="artists" class="section">
-<div class="card">🎧 Skrillex</div>
-<div class="card">🎧 Hardwell</div>
-<div class="card">🎧 David Guetta</div>
-<div class="card">🎧 Martin Garrix</div>
-</div>
-
-<div id="tickets" class="section">
-<div class="card">
-<h3>MMF 2026 Ticket</h3>
-
-<input id="name" placeholder="Your Name">
-<input id="phone" placeholder="Mobile Number">
-
-<select id="artist">
-<option>Skrillex</option>
-<option>Hardwell</option>
-<option>David Guetta</option>
-<option>Martin Garrix</option>
-</select>
-
-<select id="ticket">
-<option>Color Entry – ₹250</option>
-<option>Student Pass – ₹499</option>
-<option>VIP Pass – ₹999</option>
-<option>Platinum – ₹2499</option>
-</select>
-
-<button class="button" onclick="book()">Book Now</button>
-<p id="result"></p>
-</div>
-</div>
-
-<script>
-function show(x){
-document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-document.getElementById(x).classList.add('active');
-}
-function book(){
-let n=document.getElementById("name").value;
-let p=document.getElementById("phone").value;
-let a=document.getElementById("artist").value;
-let t=document.getElementById("ticket").value;
-
-document.getElementById("result").innerHTML=
-"Booking for <b>"+n+"</b><br>"+a+"<br>"+t+"<br>Mobile: "+p+"<br><br><b>Proceed to Payment (Next Step)</b>";
-}
-</script>
 
 </body>
 </html>
